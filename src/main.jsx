@@ -8,10 +8,14 @@ import "./index.css";
 import { AuthProvider } from "./context/AuthContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 
+const routerBaseName = window.location.hostname.endsWith("github.io")
+  ? "/reactproject"
+  : "/";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
   
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename={routerBaseName}>
         <AuthProvider>
           <ErrorBoundary>
             <App />
