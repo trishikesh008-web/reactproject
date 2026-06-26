@@ -11,9 +11,11 @@ import ErrorBoundary from "./components/ErrorBoundary";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
   
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AuthProvider>
-          <App />
+          <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
         </AuthProvider>
       </BrowserRouter>
 
